@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
-<script
-	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js">
-	
-</script>
 
 
 <h3>[회원가입]</h3>
@@ -34,11 +30,11 @@
 					</div>
 				</c:if>
 			</spring:hasBindErrors>
-			<c:if test="${!empty errorMessage }">
-				<div class="alert alert-danger">
-					<strong>${errorMessage }</strong>
-				</div>
-			</c:if>
+				<c:if test="${!empty errorMessage }">
+					<div class="alert alert-danger">
+								<strong>${errorMessage }</strong>
+					</div>
+				</c:if>
 		</div>
 		<div class="form-group">
 			<label for="password">비밀번호 </label> <input type="password"
@@ -79,35 +75,20 @@
 			</spring:hasBindErrors>
 		</div>
 		<div class="form-group">
-			<label for="address">주소 </label>&nbsp;
-			<button id="btnSearchAddressC" type="Button"
-				onclick="findDaumPostcode()" value="주소찾기">주소찾기</button>
-			<input type="text" class="form-control" id="address"
-				placeholder="Enter address" name="address"
-				value="${member.address }" readonly="readonly">
-
+			<label for="address">주소 </label> <input type="text"
+				class="form-control" id="address" placeholder="Enter address"
+				name="address" value="${member.address }">
 
 			<spring:hasBindErrors name="memberDTO">
 				<c:if test="${errors.hasFieldErrors('address') }">
-					<div class="alert alert-danger">
+			<div class="alert alert-danger">
 						<strong>${errors.getFieldError( 'address' ).defaultMessage }</strong>
-					</div>
-				</c:if>
+						</div>
+		</c:if>
 			</spring:hasBindErrors>
 		</div>
-		<button type="submit" id="btnJoin">회원가입</button>
+		<button type="submit" class="btn btn-primary" id="btnJoin">회원가입</button>
 	</form>
 </div>
-<script>
-	function findDaumPostcode() {
-		new daum.Postcode({
-			oncomplete : function(data) {
-				var zoneCodeCompany = data.zonecode;
-				var addressCompany = data.address;
-				//document.getElementById("txtPostCodeC").value = zoneCodeCompany; // zipcode
-				document.getElementById("address").value = addressCompany; // 주소 넣기
-			}
-		}).open();
-	}
-</script>
+
 <%@ include file="../include/footer.jsp"%>

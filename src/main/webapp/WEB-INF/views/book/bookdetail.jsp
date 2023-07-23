@@ -4,25 +4,44 @@
 
 
 
+<br/><br/>
 
 
-업로드 이미지파일 <br/>
+<center>
+<img src = "/resource/img/${book.img }" style="width:400px;"><br/> <!-- 업로드 이미지파일 -->
+</center>
+<hr style = "border : solid 2px #828282; width:395px">
 
-책이름 : ${book.title } <br>
 
+<head>
 
-회원이름 : ${book.memberid.username }<br/>
-회원주소 : ${book.memberid.address }<br/>
+<style>
+		div {
+			border: 1px solid white ;
+			margin: 0px auto;
+			padding: 0px;
+			width: 400px;
+			overflow: auto;
+		}
+</style>
+</head>
 
-책제목 : title <br/>
-
-저자 : author <br/>
-
-내용 <br/>
-content <br/>
-
-등록날짜 : uploaddate <br/>
-
+<body>
+	<div style = "font-size: 17px; font-weight:500">ID : ${book.memberid.username }</div>
+	<div style = "font-size: 15px; font-weight:400">주소 : ${book.memberid.address }</div>
+	
+	<hr style = "border : solid 2px #828282; width:395px">
+	<div style = "font-size: 15px; font-weight:200">${book.category }</div>
+	<div style = "font-size: 20px; font-weight:700">${book.title }</div>
+	
+	
+	<!--  <div>책제목 : ${book.title }</div>-->
+	<div>${book.author }</div><br>
+	<div>[내용] <br> ${book.content }</div><br>
+	<div style = "font-size: 11px;">등록날짜 : ${book.uploaddate }</div>
+	<br><br>	
+	
+</body>
 
 
 <!-- 대여 요청 버튼? 수정 김명준-->

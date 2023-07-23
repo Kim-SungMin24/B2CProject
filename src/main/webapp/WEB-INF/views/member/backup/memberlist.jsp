@@ -10,6 +10,7 @@
 	<table class="table table-hover">
 		<thead>
 			<tr>
+				<th>번호</th>
 				<th>아이디</th>
 				<th>이름</th>
 				<th>비밀번호</th>
@@ -21,7 +22,8 @@
 		<tbody>
 			<c:forEach items="${member }" var="member" varStatus="st">
 				<tr>
-					<td><a href="memberview/${member.username }">${member.username }</a></td>
+					<td><a href="memberview/${member.userid}">${member.userid}</a></td>
+					<td>${member.username }
 					<td>${member.name }
 					<td>${member.password}</td>
 					<td>${member.email}</td>
